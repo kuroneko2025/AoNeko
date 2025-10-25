@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>あおねこ</title>
+    <link rel="shortcut icon" href="public/icon/favicon.ico" type="image/x-icon">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Open Graph metadata for あおねこ (AIアーティスト) -->
+    <meta property="og:title" content="AIアーティスト あおねこ" />
+    <meta property="og:description" content="AIで生成した幻想的なイラストを公開しています。ぜひご覧ください。" />
+    <meta property="og:image" content="https://github.com/kuroneko2025/AoNeko/public/logo/logo.webp" />
+    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="800" />
+    <meta property="og:url" content="https://github.com/kuroneko2025/AoNeko" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ja_JP" />
+    <!-- Twitter Card metadata -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AIアーティスト あおねこ" />
+    <meta name="twitter:description" content="AIで生成した幻想的なイラストを公開しています。ぜひご覧ください。" />
+    <meta name="twitter:image" content="https://github.com/kuroneko2025/AoNeko/public/logo/logo.webp" />
+    <meta name="twitter:image:alt" content="あおねこのAIイラストロゴ" />
+    <style>*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}body{color:#fff;min-height:100vh;overflow-x:hidden;position:relative;background:#0a0a1a}.background-container{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;overflow:hidden}.background-slide{position:absolute;top:0;left:0;width:100%;height:100%;background-size:cover;background-position:center;opacity:0;transition:opacity 1.5s ease-in-out}.background-slide.active{opacity:.4}.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgb(10 10 30 / .9) 0%,rgb(20 10 40 / .8) 100%);z-index:-1}#loading-screen{position:fixed;top:0;left:0;width:100%;height:100%;background:rgb(10 10 25 / .98);display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:9999;transition:opacity 0.8s ease}.logo-container{display:flex;flex-direction:column;align-items:center;margin-bottom:30px}.logo{width:140px;height:140px;background:linear-gradient(135deg,#4a00e0,#8e2de2,#ff416c);border-radius:50%;display:flex;justify-content:center;align-items:center;margin-bottom:20px;padding:5px;box-shadow:0 0 25px #4a00e0,0 0 40px rgb(255 65 108 / .5),inset 0 0 15px rgb(255 255 255 / .2);animation:pulse 2s infinite alternate}.logo img{width:130px;height:130px;border-radius:50%;object-fit:cover;background-color:#fff}.app-name{font-size:2.2rem;font-weight:600;background:linear-gradient(135deg,#4a00e0,#ff416c);-webkit-background-clip:text;-webkit-text-fill-color:#fff0;margin-bottom:10px;letter-spacing:2px}.loading-bar{width:280px;max-width:90%;height:6px;background:rgb(255 255 255 / .1);border-radius:10px;overflow:hidden;margin-top:20px}.loading-progress{height:100%;width:0%;background:linear-gradient(90deg,#4a00e0,#ff416c);border-radius:10px;transition:width 0.3s ease;box-shadow:0 0 10px #ff416c}.loading-text{margin-top:15px;font-size:.9rem;color:#b0b0d0}#age-verification{position:fixed;top:0;left:0;width:100%;height:100%;background:rgb(0 0 0 / .8);display:flex;justify-content:center;align-items:center;z-index:10000;padding:20px;visibility:hidden;opacity:0;transition:opacity 0.3s ease,visibility 0.3s ease}#age-verification.active{visibility:visible;opacity:1}.verification-box{background:rgb(25 15 40 / .95);border-radius:20px;padding:40px;max-width:500px;width:100%;box-shadow:0 0 30px rgb(74 0 224 / .4),0 10px 30px rgb(0 0 0 / .5);border:2px solid;border-image:linear-gradient(135deg,#4a00e0,#ff416c) 1;text-align:center;animation:modalAppear 0.5s ease-out}.warning-icon{font-size:60px;color:#ff416c;margin-bottom:25px;text-shadow:0 0 15px rgb(255 65 108 / .5)}.verification-title{font-size:1.8rem;margin-bottom:20px;color:#ff416c;text-shadow:0 0 10px rgb(255 65 108 / .3)}.verification-text{margin-bottom:25px;line-height:1.6;color:#e0e0f0;font-size:1.1rem}.disclaimer-text{font-size:.85rem;color:#b0b0d0;margin-bottom:30px;line-height:1.5;font-style:italic}.button-group{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}.btn{padding:14px 30px;border:none;border-radius:10px;font-weight:600;cursor:pointer;transition:all 0.3s ease;font-size:1rem;min-width:160px}.btn-confirm{background:linear-gradient(135deg,#4a00e0,#8e2de2);color:#fff;box-shadow:0 5px 20px rgb(74 0 224 / .4)}.btn-deny{background:linear-gradient(135deg,#ff416c,#ff4b2b);color:#fff;box-shadow:0 5px 20px rgb(255 65 108 / .4)}.btn:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgb(0 0 0 / .3)}#linktree{display:none;max-width:800px;margin:0 auto;padding:40px 20px}.profile-section{text-align:center;margin-bottom:50px}.profile-img{width:140px;height:140px;border-radius:50%;object-fit:cover;margin-bottom:25px;box-shadow:0 0 25px rgb(74 0 224 / .4);padding:4px;background:linear-gradient(135deg,#4a00e0,#ff416c);display:inline-block}.profile-img img{width:100%;height:100%;border-radius:50%;display:block;background-color:#fff}.profile-name{font-size:2.2rem;margin-bottom:15px;background:linear-gradient(135deg,#4a00e0,#ff416c);-webkit-background-clip:text;-webkit-text-fill-color:#fff0;text-shadow:0 0 10px rgb(74 0 224 / .3)}.profile-bio{font-size:1.2rem;color:#b0b0d0;max-width:500px;margin:0 auto 30px;line-height:1.6;font-weight:500}.language-selector{margin-bottom:40px;display:flex;justify-content:center;gap:15px;flex-wrap:wrap}.lang-btn{padding:10px 20px;background:rgb(255 255 255 / .1);border:none;border-radius:8px;color:#b0b0c0;cursor:pointer;transition:all 0.3s ease;font-size:.95rem}.lang-btn.active{background:linear-gradient(135deg,#4a00e0,#ff416c);color:#fff;box-shadow:0 0 15px rgb(74 0 224 / .3)}.links-container{display:flex;flex-direction:column;gap:20px}.link-card{background:rgb(255 255 255 / .05);border-radius:15px;padding:20px;display:flex;align-items:center;gap:20px;transition:all 0.3s ease;cursor:pointer;border:1px solid rgb(255 255 255 / .1);text-decoration:none;color:inherit;backdrop-filter:blur(10px)}.link-card:hover{background:rgb(255 255 255 / .08);transform:translateY(-5px);box-shadow:0 10px 25px rgb(0 0 0 / .3),0 0 20px rgb(74 0 224 / .2);border-color:rgb(74 0 224 / .3)}.link-image{width:60px;height:60px;border-radius:12px;object-fit:cover;flex-shrink:0;background:linear-gradient(135deg,#4a00e0,#8e2de2);display:flex;align-items:center;justify-content:center;font-size:24px;color:#fff;box-shadow:0 0 15px rgb(74 0 224 / .4)}.link-image img{width:100%;height:100%;border-radius:12px;object-fit:cover}.link-content{flex-grow:1}.link-title{font-weight:600;margin-bottom:8px;color:#e0e0f0;font-size:1.2rem}.link-desc{font-size:.95rem;color:#a0a0c0}.footer{text-align:center;margin-top:50px;color:#88a;font-size:.9rem}@keyframes modalAppear{0%{transform:scale(.9);opacity:0}100%{transform:scale(1);opacity:1}}@keyframes pulse{0%{box-shadow:0 0 25px #4a00e0,0 0 40px rgb(255 65 108 / .5)}100%{box-shadow:0 0 35px #4a00e0,0 0 50px rgb(255 65 108 / .7)}}@media (max-width:768px){.app-name{font-size:1.8rem}.profile-name{font-size:1.8rem}.verification-box{padding:30px 20px}.button-group{flex-direction:column;align-items:center}.btn{width:100%;max-width:280px}.link-card{padding:15px}.link-image{width:50px;height:50px;font-size:20px}}@media (max-width:480px){.logo{width:100px;height:100px}.logo img{width:60px;height:60px}.app-name{font-size:1.6rem}.profile-img{width:120px;height:120px}.link-title{font-size:1.1rem}.link-desc{font-size:.85rem}}.particles{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:-1}.particle{position:absolute;width:4px;height:4px;background:#4a00e0;border-radius:50%;animation:float 20s infinite linear;box-shadow:0 0 10px #4a00e0}.particle:nth-child(2n){background:#ff416c;box-shadow:0 0 10px #ff416c;animation-duration:25s}@keyframes float{0%{transform:translateY(100vh) rotate(0deg);opacity:0}10%{opacity:.7}90%{opacity:.7}100%{transform:translateY(-100px) rotate(360deg);opacity:0}}.language-notification{position:fixed;top:20px;right:20px;background:linear-gradient(135deg,#4a00e0,#ff416c);color:#fff;padding:12px 25px;border-radius:10px;z-index:10000;box-shadow:0 5px 20px rgb(0 0 0 / .3);transform:translateX(150%);transition:transform 0.5s ease;font-size:.9rem;font-weight:500}@media (max-width:768px){.language-notification{top:10px;right:10px;left:10px;transform:translateY(-150%)}}</style>
+    <script>
+        document.addEventListener('contextmenu', function (e) { e.preventDefault() });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F12') { e.preventDefault() }
+            if (e.ctrlKey && e.shiftKey && ['I', 'J'].includes(e.key.toUpperCase())) { e.preventDefault() }
+            if (e.ctrlKey && e.key.toUpperCase() === 'U') { e.preventDefault() }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="background-container" id="background-container"></div>
+    <div class="overlay"></div>
+
+    <div id="loading-screen">
+        <div class="logo-container">
+            <div class="logo">
+                <img src="public/logo/logo.webp" alt="Profile">
+            </div>
+            <div class="app-name">あおねこ</div>
+        </div>
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+        <div class="loading-text">Cargando...</div>
+    </div>
+
+    <div id="linktree">
+        <div class="profile-section">
+            <img src="public/logo/logo.webp" alt="Profile" class="profile-img">
+            <h1 class="profile-name">あおねこ</h1>
+            <p class="profile-bio">Artista AI</p>
+
+            <div class="language-selector">
+                <button class="lang-btn active" data-lang="es">Español</button>
+                <button class="lang-btn" data-lang="en">English</button>
+                <button class="lang-btn" data-lang="ja">日本語</button>
+            </div>
+        </div>
+
+        <div class="links-container" id="links-container">
+        </div>
+
+        <div class="footer">
+            <p>© 2023 あおねこ - Todos los derechos reservados</p>
+        </div>
+    </div>
+
+    <div id="age-verification">
+        <div class="verification-box">
+            <div class="warning-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h2 class="verification-title">Verificación de Edad</h2>
+            <p class="verification-text">Este contenido está destinado únicamente para mayores de 18 años. Por favor,
+                confirma tu edad para continuar.</p>
+            <p class="disclaimer-text">El autor se desliga de toda responsabilidad si un menor, a pesar de las
+                advertencias, accede al contenido.</p>
+            <div class="button-group">
+                <button class="btn btn-confirm">Soy mayor de 18 años</button>
+                <button class="btn btn-deny">Soy menor de edad</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="particles" id="particles"></div>
+
+    <script>$(document).ready(function(){const backgroundImages=['https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80','https://images.unsplash.com/photo-1550684376-efcbd6e1f961?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80','https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80'];const links=[{title:"Misskey.io",url:"https://misskey.io/@bluecatboy",desc:"イラストを見たい方は、フォローしてね！",icon:"fab fa-mastodon",favicon:"https://media.misskeyusercontent.jp/io/214f4fcf-c589-4d61-9180-81dd4938297d.webp"},{title:"【pixiv(ショタ)】",url:"https://www.pixiv.net/en/users/105805418",desc:"イラストを見たい方は、フォローしてね！",icon:"fas fa-palette",favicon:"https://s.pximg.net/common/images/favicon.ico"},{title:"【pixiv(ケモショタ)】",url:"https://www.pixiv.net/en/users/110617040",desc:"イラストを見たい方は、フォローしてね！",icon:"fas fa-palette",favicon:"https://s.pximg.net/common/images/favicon.ico"},{title:"【pixiv(男の娘)】 ",url:"https://www.pixiv.net/en/users/117716316",desc:"イラストを見たい方は、フォローしてね！",icon:"fas fa-palette",favicon:"https://s.pximg.net/common/images/favicon.ico"},{title:"【pixiv(ロリ・ボーイッシュ)】",url:"https://www.pixiv.net/en/users/113890686",desc:"イラストを見たい方は、フォローしてね！",icon:"fas fa-palette",favicon:"https://s.pximg.net/common/images/favicon.ico"},{"title":"【X(ロリ・ボーイッシュ)】","url":"https://redcatgirl.booth.pm/","desc":"BOOTHでイラストやグッズを販売しています。ぜひチェック＆フォローしてね！","icon":"fas fa-store","favicon":"https://booth.pm/favicon.ico"},{"title":"【BOOTH - イラスト販売(ショタ)】","url":"https://bluecatboy.booth.pm/","desc":"BOOTHでイラストやグッズを販売しています。ぜひチェック＆フォローしてね！","icon":"fas fa-store","favicon":"https://booth.pm/favicon.ico"},{"title":"【X(ショタ)】","url":"https://x.com/bluecatillust","desc":"AIで生成したイラストや作品をXで公開しています。気に入ったらぜひフォローしてね！","icon":"fab fa-x-twitter","favicon":"https://abs.twimg.com/favicons/twitter.2.ico"},{"title":"【🔞SNS】","url":"https://dill.burggit.moe/@bluecat_illust","desc":"AIで生成したイラストや作品をDillで公開しています。気に入ったらぜひフォローしてね！","icon":"fas fa-mastodon","favicon":"https://dill.burggit.moe/favicon.ico"}];function initializeBackgrounds(){const container=$('#background-container');backgroundImages.forEach((img,index)=>{const slide=$('<div class="background-slide"></div>');slide.css('background-image',`url(${img})`);if(index===0){slide.addClass('active')}
+container.append(slide)})}
+function startBackgroundRotation(){let currentIndex=0;const slides=$('.background-slide');setInterval(()=>{const currentSlide=slides.eq(currentIndex);const nextIndex=(currentIndex+1)%slides.length;const nextSlide=slides.eq(nextIndex);currentSlide.removeClass('active');nextSlide.addClass('active');currentIndex=nextIndex},5000)}
+function createParticles(){const particlesContainer=$('#particles');const particleCount=$(window).width()<768?40:60;for(let i=0;i<particleCount;i++){const particle=$('<div class="particle"></div>');particle.css({left:Math.random()*100+'%',animationDelay:Math.random()*20+'s',animationDuration:(Math.random()*20+20)+'s'});particlesContainer.append(particle)}}
+function detectBrowserLanguage(){const browserLang=navigator.language||navigator.userLanguage;let langCode='es';if(browserLang.startsWith('en')){langCode='en'}else if(browserLang.startsWith('ja')){langCode='ja'}
+return langCode}
+function changeLanguage(lang){const texts={es:{loading:"Cargando...",ageTitle:"Verificación de Edad",ageText:"Este contenido está destinado únicamente para mayores de 18 años. Por favor, confirma tu edad para continuar.",disclaimer:"El autor se desliga de toda responsabilidad si un menor, a pesar de las advertencias, accede al contenido.",confirm:"Soy mayor de 18 años",deny:"Soy menor de edad",bio:"Artista AI",footer:"© 2023 あおねこ - Todos los derechos reservados"},en:{loading:"Loading...",ageTitle:"Age Verification",ageText:"This content is intended only for adults over 18 years of age. Please confirm your age to continue.",disclaimer:"The author disclaims any responsibility if a minor, despite the warnings, accesses the content.",confirm:"I am over 18 years old",deny:"I am underage",bio:"AI Artist",footer:"© 2023 あおねこ - All rights reserved"},ja:{loading:"読み込み中...",ageTitle:"年齢確認",ageText:"このコンテンツは18歳以上の成人のみを対象としています。続行するには年齢を確認してください。",disclaimer:"作者は、警告にもかかわらず未成年がコンテンツにアクセスした場合、一切の責任を負いません。",confirm:"18歳以上です",deny:"未成年です",bio:"AIアーティスト",footer:"© 2023 あおねこ - 全著作権所有"}};$('.loading-text').text(texts[lang].loading);$('.verification-title').text(texts[lang].ageTitle);$('.verification-text').text(texts[lang].ageText);$('.disclaimer-text').text(texts[lang].disclaimer);$('.btn-confirm').text(texts[lang].confirm);$('.btn-deny').text(texts[lang].deny);$('.profile-bio').text(texts[lang].bio);$('.footer p').text(texts[lang].footer);$('.lang-btn').removeClass('active');$(`.lang-btn[data-lang="${lang}"]`).addClass('active');showLanguageNotification(lang)}
+function showLanguageNotification(lang){let message='';switch(lang){case 'es':message='Idioma cambiado a Español';break;case 'en':message='Language changed to English';break;case 'ja':message='言語が日本語に変更されました';break}
+const notification=$('<div class="language-notification">'+message+'</div>');$('body').append(notification);setTimeout(function(){notification.css('transform',$(window).width()<768?'translateY(0)':'translateX(0)')},100);setTimeout(function(){notification.css('transform',$(window).width()<768?'translateY(-150%)':'translateX(150%)');setTimeout(function(){notification.remove()},500)},3000)}
+function generateLinks(){const container=$('#links-container');container.empty();links.forEach(link=>{if(link.url.includes('misskey.io')){link.icon='fas fa-mastodon';link.favicon='public/logo/logo.webp'}
+const linkCard=$('<a>',{class:'link-card',href:link.url,target:'_blank',rel:'noopener noreferrer'});const linkImage=$('<div>',{class:'link-image'});if(link.favicon){const img=$('<img>',{src:link.favicon,alt:link.title}).on('error',function(){$(this).hide();$(this).next().show()});const fallbackIcon=$('<i>',{class:link.icon,style:'display: none',title:link.title,'aria-label':link.title,role:'img'});linkImage.append(img,fallbackIcon)}else{linkImage.append($('<i>',{class:link.icon,title:link.title,'aria-label':link.title,role:'img'}))}
+const linkContent=$('<div>',{class:'link-content'}).append($('<div>',{class:'link-title',text:link.title}),$('<div>',{class:'link-desc',text:link.desc}));linkCard.append(linkImage,linkContent);container.append(linkCard)})}
+initializeBackgrounds();startBackgroundRotation();createParticles();generateLinks();const detectedLang=detectBrowserLanguage();changeLanguage(detectedLang);let progress=0;const progressInterval=setInterval(function(){progress+=Math.random()*10;if(progress>=100){progress=100;clearInterval(progressInterval);setTimeout(function(){$('#loading-screen').fadeOut(800,function(){$('#linktree').fadeIn(100,function(){$('#age-verification').addClass('active')})})},500)}
+$('.loading-progress').css('width',progress+'%')},300);$('.btn-confirm').click(function(){$('#age-verification').removeClass('active')});$('.btn-deny').click(function(){alert('アクセスが拒否されました。18歳以上でないとこのコンテンツは閲覧できません。');window.location.href = 'https://www.google.com/';$('#age-verification').removeClass('active')});$('.lang-btn').click(function(){const lang=$(this).data('lang');changeLanguage(lang)});function handleResize(){if($(window).width()<768){$('.button-group').addClass('mobile')}else{$('.button-group').removeClass('mobile')}}
+$(window).on('resize',handleResize);handleResize()})</script>
+</body>
+
+</html>
